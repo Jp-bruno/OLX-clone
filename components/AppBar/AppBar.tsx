@@ -11,7 +11,7 @@ const StyledAppBar = styled.div`
   header {
     display: flex;
     align-items: center;
-    width: 90%;
+    width: ${({theme}) => theme.maxWidth};
     margin-inline: auto;
   }
 
@@ -22,33 +22,25 @@ const StyledAppBar = styled.div`
     
     ul {
       display: flex;
-      width: 70%;
-      align-items: center;
-      justify-self: flex-end;
       column-gap: 32px;
+      margin-right: 45px;
 
       li {
-        color: black;
-        flex-basis: max-content;
         font-size: 14px;
-        font-weight: 600;
-
-        div {
-          display: flex;
-          align-items: center;
-          column-gap: 10px;
-          justify-content: center;
-        }
+        font-weight: 500;    
       }
     }
   }
 
   button {
-    background-color: ${(props) => props.theme.secondary.main};
+    background-color: ${({theme}) => theme.secondary.main};
     width: 118px;
     border-radius: 50px;
     border: 0;
     height: 40px;
+    margin-inline: auto;
+    color: white;
+    font-weight: 700;
   }
 `
 
@@ -60,24 +52,24 @@ export default function AppBar() {
         <nav>
           <ul>
             <li>
-              <NavLink src='/images/icons/plano.svg' text='Plano Profissional' to='/' />
+              <NavLink src='/images/menu-icons/plano.svg' text='Plano Profissional' to='/' />
             </li>
 
             <li>
-              <NavLink src='/images/icons/anuncios.svg' text='Meus Anúncios' to='/' />
+              <NavLink src='/images/menu-icons/anuncios.svg' text='Meus Anúncios' to='/' />
             </li>
 
             <li>
-              <NavLink src='/images/icons/chat.svg' text='Chat' to='/' />
+              <NavLink src='/images/menu-icons/chat.svg' text='Chat' to='/' />
             </li>
 
             <li>
-              <NavLink src='/images/icons/notificacoes.svg' text='Notificações' to='/' />
+              <NavLink src='/images/menu-icons/notificacoes.svg' text='Notificações' to='/' />
 
             </li>
 
             <li>
-              <NavLink src='/images/icons/entrar.svg' text='Entrar' to='/' />
+              <NavLink src='/images/menu-icons/entrar.svg' text='Entrar' to='/' />
             </li>
           </ul>
         </nav>
