@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { css } from '@emotion/react';
 
 type AnuncioProps = {
     imgSrc: string,
@@ -7,29 +6,12 @@ type AnuncioProps = {
     valor?: string
 }
 
-// const Image = styled('div', {
-//     shouldForwardProp: prop => prop === 'imgSrc'
-// })
-//     (props => ({
-//         "& .img-wrapper": {
-//             position: "relative",
-//             minWidth: "162px",
-//             minHeight: "121px",
-//             borderRadius: "10px",
-//             overflow: "hidden",
-//             backgroundImage: `url(${props => props.imgSrc})`
-//         }
-//     }))
-
-const dynamic = (props: AnuncioProps) => css`
-    background-image: url(${props.imgSrc});
-`
-
 const Anuncio = styled.div`
-    min-width: 15%;
+    min-width: 162px;
 
     h4 {
         margin-top: 10px;
+        margin-bottom: 5px;
         font-size: 14px;
         font-weight: 400;
     }
@@ -41,7 +23,6 @@ const Anuncio = styled.div`
     }
 `;
 
-
 const Imagem = styled('div', { shouldForwardProp:  prop => prop === 'imgSrc'})((props: Partial<AnuncioProps>) => ({
     position: "relative",
     minWidth: "162px",
@@ -50,7 +31,7 @@ const Imagem = styled('div', { shouldForwardProp:  prop => prop === 'imgSrc'})((
     overflow: "hidden",
     backgroundColor: 'rgb(229, 229, 229)',
     backgroundImage: `url(${props.imgSrc})`,
-    backgroundSize: 'contain',
+    backgroundSize: 'auto 100%',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
 }))

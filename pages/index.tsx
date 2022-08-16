@@ -5,6 +5,8 @@ import Categorias from '../components/SearchRow/Categorias';
 import ItemAnuncio from '../components/ItemAnuncio/ItemAnuncio';
 
 const Main = styled.main`
+  background-color: rgb(229, 229, 229);
+
   & .section1 {
     background-color: ${(props) => props.theme.primary.main};
     padding-top: 32px;
@@ -14,6 +16,15 @@ const Main = styled.main`
   & .section2 {
     max-width: 85%;
     margin-inline: auto;
+    background-color: white;
+    padding-inline: 20px;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgb(74, 74, 74);
+      padding: 30px 0 20px;
+    }
 
     & .anuncios-wrapper {
       display: flex;
