@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Image from "next/image";
 
 const Button = styled.button`
     padding: 8px;
@@ -7,6 +6,7 @@ const Button = styled.button`
     width: 60px;
     border-left: solid 2px;
     border-left-color: rgb(210, 210, 210);
+    background-color: white;
 
     &:hover {
         background-color: ${props => props.theme.primary.dark};

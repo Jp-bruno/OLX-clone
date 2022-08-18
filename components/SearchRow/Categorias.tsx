@@ -16,7 +16,8 @@ const images = [
 ];
 
 const Wrapper = styled.div`
-
+    padding-bottom: 25px;
+    
     ul {
         display: flex;
         align-items: center;

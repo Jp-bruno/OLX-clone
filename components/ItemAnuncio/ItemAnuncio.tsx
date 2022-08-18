@@ -4,11 +4,13 @@ import isPropValid from '@emotion/is-prop-valid';
 type AnuncioProps = {
     imgSrc: string,
     titulo: string,
-    valor?: string
+    valor?: string,
+    large?: boolean,
+    className?: string
 }
 
 const Anuncio = styled.div`
-    min-width: 162px;
+    width: 100%;
 
     h4 {
         margin-top: 10px;
@@ -24,31 +26,34 @@ const Anuncio = styled.div`
     }
 `;
 
-const ImagemStyled = styled('div', { shouldForwardProp: prop => isPropValid(prop) && prop !== 'imgSrc' })((props:Partial<AnuncioProps>) => ({
+const ImagemStyled = styled('div', { shouldForwardProp: prop => isPropValid(prop) && prop !== 'imgSrc' })((props: Partial<AnuncioProps>) => ({
     position: "relative",
     minWidth: "162px",
-    minHeight: "121px",
+    minHeight: '121px',
     borderRadius: "10px",
     overflow: "hidden",
     backgroundColor: "rgb(229, 229, 229)",
     backgroundImage: `url(${props.imgSrc})`,
     backgroundSize: "auto 100%",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center"
+    backgroundPosition: "center",
 
+    '&.large': {
+        minHeight: '159px',
+    }
 }))
 
-function Imagem({ imgSrc }:Partial<AnuncioProps>) {
+function Imagem({ className, imgSrc }: Partial<AnuncioProps>) {
     return (
-        <ImagemStyled imgSrc={imgSrc} />
+        <ImagemStyled imgSrc={imgSrc} className={className}/>
     )
 }
 
 
-export default function ItemAnuncio({ imgSrc, titulo, valor }: AnuncioProps) {
+export default function ItemAnuncio({ imgSrc, titulo, valor, large = false }: AnuncioProps) {
     return (
         <Anuncio>
-            <Imagem imgSrc={imgSrc} />
+            <Imagem imgSrc={imgSrc} className={large ? 'large' : ''} />
             <h4>{titulo}</h4>
             <span>R$ {valor}</span>
         </Anuncio>
