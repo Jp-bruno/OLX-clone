@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ItemAnuncio from "../ItemAnuncio/ItemAnuncio";
 import styled from "@emotion/styled";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const StyledGaleria = styled.div`
     position: relative;
@@ -65,9 +65,13 @@ export default function GaleriaPremium() {
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const buttonRef = useRef<HTMLButtonElement | null>(null);
 
+    useEffect(() => {
+
+    })
+
     function scroll() {
         scrollRef.current?.scrollTo({
-            left: buttonRef.current?.classList.contains('reverse') ? scrollRef.current.scrollWidth : -scrollRef.current.scrollWidth,
+            left: buttonRef.current?.classList.contains('reverse') ? -scrollRef.current.scrollWidth : scrollRef.current.scrollWidth,
             behavior: "smooth"
         })
 
@@ -95,7 +99,7 @@ export default function GaleriaPremium() {
                 </ul>
 
             </div>
-            <StyledButton ref={buttonRef} onClick={scroll}>
+            <StyledButton ref={buttonRef} onClick={scroll} >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path fill="#000" d="M14.53 6.53a.75.75 0 0 0-1.06-1.06l-6 6a.75.75 0 0 0 0 1.06l6 6a.75.75 0 0 0 1.06-1.06L9.06 12l5.47-5.47z" fillRule="evenodd"></path></svg>
             </StyledButton>
         </StyledGaleria>
